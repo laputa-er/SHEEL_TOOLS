@@ -2,6 +2,7 @@
 # Author: eli01linux@gmail.com(MengQingshen)
 # History:
 #	2017-03-21 MengQingshen First release
+
 # @param {array} $1 Old name list.
 # @param {array} $2 New Name list.
 function preview () {
@@ -23,7 +24,7 @@ function preview () {
                 local NEW_NAME=${NEW_NAMES_ARR[${I}]}
                 if [ -e "${OLD_NAME}" ]
                     then
-                        printf "%-2s\n" "${I}    ${OLD_NAME}"
+                        printf "%-3s\n" "${I}    ${OLD_NAME}"
                         NEW_MSG="  => ${NEW_NAME}"
                         echo -e "\e[1;34m${NEW_MSG}\e[0m"
                 fi

@@ -5,7 +5,7 @@
 # 	2017-03-20 MengQingshen First release
 
 # The dir containing  files which need to be renamed
-DIR_FOR_FILES_TO_BE_RENAMEED='/Users/tonyearth/Downloads'
+DIR_FOR_FILES_TO_BE_RENAMEED='/Users/tonyearth/Projects/mqs_shell_scripts/tmp/files_to_be_renamed'
 
 REGEXP_OF_FILES_TO_BE_REPLACED='^-'
 # To match the part that needs to be replaced.

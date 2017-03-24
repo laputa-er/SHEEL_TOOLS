@@ -4,12 +4,12 @@
 #	2017-3-21 MengQingshen First release
 
 function testItCanProvideRightResultLog () {
-    cd ${CURSHELL_DIR}/../sources
+    # cd ${CURSHELL_DIR}/../sources
     
-    source ${CURSHELL_DIR}/./rename.sh
-    local LOG_FILE_PATH = "${CURSHELL_DIR}/../log/rename_$(date +"%Y-%m-%d").txt"
+    # source ${CURSHELL_DIR}/rename.sh
+    # local LOG_FILE_PATH = "${CURSHELL_DIR}/../log/rename_$(date +"%Y-%m-%d").txt"
 
-    assertTrue 'Expected generate list of renamed files under log dir.' [ -f ${LOG_FILE_PATH} ]
+    # assertTrue 'Expected generate list of renamed files under log dir.' [ -f ${LOG_FILE_PATH} ]
 }
 
 #-----------------------------------------------------------------------------
@@ -25,9 +25,9 @@ function createSomeFilesToBeRenamed () {
 
 # @param {string} $1 The path of the shell script it self.
 function excuteImport () {
-    . $1/../sources/lib/mqs_funs.sh
-    . $1/../sources/config.sh
-    . $1/../sources/functions.sh
+    . $1/../sources/common/mqs_functions.sh
+    . $1/../config.sh
+    . $1/../sources/rename/functions.sh
 }
 
 function oneTimeSetUp () {
