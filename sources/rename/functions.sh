@@ -2,7 +2,6 @@
 # Author: eli01linux@gmail.com(MengQingshen)
 # History:
 #	2017-03-21 MengQingshen First release
-
 # @param {array} $1 Old name list.
 # @param {array} $2 New Name list.
 function preview () {
