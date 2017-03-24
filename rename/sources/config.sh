@@ -5,11 +5,11 @@
 # 	2017-03-20 MengQingshen First release
 
 # The dir containing  files which need to be renamed
-DIR_FOR_FILES_TO_BE_RENAMEED='/Users/tonyearth/Projects/SHELL_TOOLS/rename/file_examples_for_test'
+DIR_FOR_FILES_TO_BE_RENAMEED='/Users/tonyearth/Downloads/ps'
 
-REGEXP_OF_FILES_TO_BE_REPLACED='^-'
+REGEXP_OF_FILES_TO_BE_REPLACED='^http---o6ul1xz4z\.bkt\.clouddn\.com-img-'
 # To match the part that needs to be replaced.
-REGEXP_OF_SEARCH='^-'
+REGEXP_OF_SEARCH='^http---o6ul1xz4z\.bkt\.clouddn\.com-img-'
 
 # The replacement.
 STR_FOR_REPLACE=''
