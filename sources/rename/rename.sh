@@ -11,7 +11,7 @@ LOG_RELAVENT_DIR="${CURSHELL_DIR}/../../log"
 
 # include config and libs
 . ${CURSHELL_DIR}/../common/mqs_functions.sh
-. ${CURSHELL_DIR}/../../config.sh
+. ${CURSHELL_DIR}/../../config/rename.sh
 . ${CURSHELL_DIR}/./functions.sh
 
 # create dir

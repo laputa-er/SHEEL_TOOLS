@@ -17,7 +17,7 @@ function oneTimeSetUp () {
 # @param {string} $1 The path of the shell script it self.
 function excuteImport () {
     . $1/../sources/common/mqs_functions.sh
-    . $1/../config.sh
+    . $1/../config/rename.sh
     . $1/../sources/rename/functions.sh
 }
 
