@@ -11,7 +11,7 @@ function preview () {
     declare -a local OLD_NAMES_ARR=($1)
     declare -a local NEW_NAMES_ARR=($2)
     IFS="$OLD_IFS"
-
+    
     local LEN=${#NEW_NAMES_ARR[@]}
     local NEW_MSG
     local I=1
@@ -26,7 +26,12 @@ function preview () {
                     then
                         printf "%-3s\n" "${I}    ${OLD_NAME}"
                         NEW_MSG="  => ${NEW_NAME}"
-                        echo -e "\e[1;34m${NEW_MSG}\e[0m"
+                        if [ -e "${NEW_NAME}" ]
+                            then
+                                echo -e "\e[1;31m${NEW_MSG} alread exisisted!\e[0m"
+                            else
+                                echo -e "\e[1;34m${NEW_MSG}\e[0m"
+                        fi
                 fi
                 I=$((${I}+1))
             done
@@ -39,18 +44,6 @@ function preview () {
 # @return {array} All the files to be renamed.
 function get_all_files_to_be_rename () {
     echo "$(ls $1 | grep $2)"
-}
-
-# @param {string} $1 The message.
-function show_prompt () {
-    local ANSWER
-    if [ is_zsh ]
-        then
-            read "ANSWER?$1"
-        else
-            read -p $1 ANSWER
-    fi
-    echo "${ANSWER}"
 }
 
 # @param {array} $1 Old name list.
@@ -73,7 +66,16 @@ function start_rename () {
                 local NEW_NAME=${NEW_NAMES_ARR[${I}]}
                 if [ -e "${OLD_NAME}" ]
                     then
-                        mv -- "${OLD_NAME}" "${NEW_NAME}"
+                        if [ -e "${NEW_NAME}" ]
+                            then
+                                rm -rf "${NEW_NAME}"
+                                mv -- "${OLD_NAME}" "${NEW_NAME}"
+                                # print_info "${OLD_NAME} escaped!"
+                                echo "$(ls -l "${NEW_NAME}") $(print_success "renamed")"
+                            else
+                               mv -- "${OLD_NAME}" "${NEW_NAME}"
+                               echo "$(ls -l "${NEW_NAME}") $(print_success "renamed")"
+                        fi       
                 fi
                 I=$((${I}+1))
             done

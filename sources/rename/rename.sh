@@ -6,7 +6,7 @@
 export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 CURSHELL_DIR=$(dirname $0)
-TMP_RELAVENT_DIR="${CURSHELL_DIR}/../tmp"
+TMP_RELAVENT_DIR="${CURSHELL_DIR}/../../tmp"
 LOG_RELAVENT_DIR="${CURSHELL_DIR}/../../log"
 
 # include config and libs

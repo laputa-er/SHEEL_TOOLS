@@ -4,14 +4,21 @@
 # History:
 #	2017-3-21 MengQingshen First release
 
-# @param  $1 Prefix of the name
+function is_zsh () {
+    echo [ -n "${ZSH_VERSION:-}" ]
+}
+
+# @param $1 The string to be split into array.
+function get_arr_from_string () {
+    
+    echo ${ARR[*]}
+}
+
+# @param $1 Prefix of the name
 function get_name_of_log_file () {
     echo "${1}_$(date +"%Y%m%d%H%M%S")"
 }
 
-function is_zsh () {
-    echo [ -n "${ZSH_VERSION:-}" ]
-}
 
 # @param $1 The relavent path.
 function get_absolute_path_by_relavent_path () {
@@ -51,4 +58,16 @@ function print_success () {
 
 function return_to_old_pwd () {
     cd -
+}
+
+# @param {string} $1 The message.
+function show_prompt () {
+    local ANSWER
+    if [ is_zsh ]
+        then
+            read "ANSWER?$1"
+        else
+            read -p $1 ANSWER
+    fi
+    echo "${ANSWER}"
 }
